@@ -20,6 +20,10 @@ const Header = () => {
                         <NavDropdown.Item href="/login">
                             Login
                         </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/signout">
+                            Sign out
+                        </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>

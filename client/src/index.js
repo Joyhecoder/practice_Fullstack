@@ -5,6 +5,7 @@ import BaseLayout from './components/layout/BaseLayout';
 import Saved from './components/Saved';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Signout from './components/auth/Signout';
 import './index.css';
 import App from './App';
 
@@ -18,6 +19,8 @@ root.render(
         <Route path='/saved' element={<Saved />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/signout' element={<Signout />} />
+        
       </Switch>
     </BaseLayout>
   </Router>
