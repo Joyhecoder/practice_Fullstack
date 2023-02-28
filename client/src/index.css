@@ -15,7 +15,7 @@ code {
 :root {
   --ff-primary: 'Tilt Warp', cursive;
   --ff-secondary: 'Lato', sans-serif;
-  --ff-heading: 'Roboto', sans-serif;
+  --ff-header: 'Roboto', sans-serif;
 }
 body{
   margin: 0;
@@ -54,3 +54,62 @@ body{
   background: rgba(233, 196, 106, 0.7);
 }
 
+
+/* app.js */
+.searchBar-container {
+  background-color: yellow;
+  height: 100vh;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-left: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.searchReq {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width:708px) {
+  .searchReq {
+    display: block;
+    width: 75vw;
+ 
+  }
+  
+
+  .searchReq > .sex {
+    float: left;
+    width: 80%
+  }
+  .searchReq > .age {
+    float: left;
+    width: 80%
+  }
+  .searchReq > .tobacco {
+    float: left;
+    width: 80%
+  }
+  .searchReq > .language {
+    float: left;
+    width: 80%
+  }
+
+  .searchReq {
+    overflow: auto;
+  }
+}
+
+.sex, .age, .tobacco, .language {
+  margin-right: 1vw;
+  font-family: var(--ff-primary);
+  width: 20vw;
+  margin-bottom: 1vh;
+}
+
+.search-button {
+  margin-top: 4vh;
+  font-family: var(--ff-primary);
+}
