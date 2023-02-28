@@ -20,6 +20,9 @@ code {
 body{
   margin: 0;
 }
+h3{
+  font-family: var(--ff-header);
+}
 
 /* nav Bar */
 .navBar {
@@ -58,7 +61,7 @@ body{
 /* app.js */
 .searchBar-container {
   background-color: yellow;
-  height: 100vh;
+  height: auto;
   padding-top: 5vh;
   padding-left: 5vw;
   /* padding-left: 5vw; */
@@ -123,9 +126,25 @@ body{
   position: absolute;
   top:20vh;
   width: 90vw;
-  height: 50vh;
-  padding: 20vh 0;
+  height: auto;
+  padding: 0 0;
   border: 3px solid green;
   text-align: center;
 
 }
+.img-container {
+  display: flex;
+}
+.img {
+
+  width: 45%;
+  
+}
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

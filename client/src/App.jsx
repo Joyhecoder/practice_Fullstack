@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
+import Card from 'react-bootstrap/Card';
 
 const App = () => {
   const [sex, setSex] = useState('')
@@ -25,7 +26,7 @@ const App = () => {
     initialFetch()
 
   }, [])
-  
+  // console.log(initialData.Sections.section);
   return (
     <>
     <div className="page-container">
@@ -65,7 +66,9 @@ const App = () => {
           <Button variant="warning">Search</Button>
         </div>
         </div>
-    
+
+
+                  {/* display section inital data*/}
         <div className="initialDisplay">
           {initialData.length === 0 ? 
           <div className="spinner">
@@ -74,7 +77,26 @@ const App = () => {
             </Spinner>
           </div>
         :
-        <>show items</>
+   
+          <div className="info-container">
+            <img src={initialData.ImageUrl} alt={initialData.ImageAlt} className='img'/>
+            <div className="infoText">
+              <h3>{initialData.Title}</h3>
+              <div className="card-container">
+                {initialData.RelatedItems.RelatedItem.map(item=>{
+                  return (
+                    <Card style={{ width: '18rem', marginTop: '1rem' }}>
+                      <Card.Body>
+                        <Card.Title>{item.Title}</Card.Title>
+                        <Card.Link href={item.Url} target="_blank">Resource</Card.Link>
+                      </Card.Body>
+                    </Card>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+ 
         }
         </div>
         
