@@ -8,6 +8,23 @@ const App = () => {
   const [tobacco, setTobacco] = useState('')
   const [language, setLanguage] = useState('')
   console.log(sex, age, tobacco, language)
+
+  const [initialData, setInitialData] = useState([])
+  console.log(initialData)
+  useEffect(() => {
+    const initialFetch = async () => {
+      try {
+        const response = await fetch('https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=527')
+        const data = await response.json()
+        setInitialData(data.Result.Resources.Resource[0])
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    initialFetch()
+
+  }, [])
+  
   return (
     <>
     <div className="page-container">
