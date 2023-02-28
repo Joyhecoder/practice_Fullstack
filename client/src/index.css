@@ -1,13 +1,56 @@
-body {
+ /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
+} */
+/* 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+:root {
+  --ff-primary: 'Tilt Warp', cursive;
+  --ff-secondary: 'Lato', sans-serif;
+  --ff-heading: 'Roboto', sans-serif;
 }
+body{
+  margin: 0;
+}
+
+/* nav Bar */
+.navBar {
+  font-family: var(--ff-primary);
+}
+
+/* register and login form */
+
+.login-form {
+  background-image: url('https://images.unsplash.com/photo-1471086569966-db3eebc25a59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80');
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.login-container {
+  --color: hsl(var(--primary-dark-hsl), .7);
+  background-color: #e9c46a;
+  box-shadow: 0 0 15px 0 #e9c46a;
+  padding: 40px 30px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 1rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(233, 196, 106, 0.7);
+}
+

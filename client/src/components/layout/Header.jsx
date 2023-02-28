@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
         <Navbar bg="light" expand="lg" sticky="top">
-            <Container>
+            <Container className='navBar'>
                 <Navbar.Brand>Healthcare Resource</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
