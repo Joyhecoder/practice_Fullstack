@@ -10,6 +10,10 @@ app.use(cors())
 app.use(express.json()) //this allows us to access the req.body
 
 
+//ROUTES//
+
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
