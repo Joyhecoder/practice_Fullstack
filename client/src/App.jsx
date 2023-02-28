@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 const App = () => {
   const [sex, setSex] = useState('')
@@ -60,16 +61,27 @@ const App = () => {
               <option value="es">Spanish</option>
             </Form.Select>
           </div>
-        </div>
-
-        <div className="search-button">
+          <div className="search-button">
           <Button variant="warning">Search</Button>
+        </div>
+        </div>
+    
+        <div className="initialDisplay">
+          {initialData.length === 0 ? 
+          <div className="spinner">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        :
+        <>show items</>
+        }
         </div>
         
 
       </div>
       <div className="displayCard-container">
-
+       
       </div>
     </div>
     

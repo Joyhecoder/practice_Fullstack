@@ -61,18 +61,20 @@ body{
   height: 100vh;
   padding-top: 5vh;
   padding-left: 5vw;
-  padding-left: 5vw;
+  /* padding-left: 5vw; */
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 
 }
 
 .searchReq {
   display: inline-flex;
   flex-wrap: wrap;
+  height:10vh;
 }
 
-@media (max-width:708px) {
+/* @media (max-width:708px) {
   .searchReq {
     display: block;
     width: 75vw;
@@ -100,16 +102,30 @@ body{
   .searchReq {
     overflow: auto;
   }
-}
+} */
 
 .sex, .age, .tobacco, .language {
   margin-right: 1vw;
   font-family: var(--ff-primary);
   width: 20vw;
   margin-bottom: 1vh;
+  
 }
 
 .search-button {
   margin-top: 4vh;
   font-family: var(--ff-primary);
+  height: 20vh;
+}
+
+.initialDisplay {
+  background-color: pink;
+  position: absolute;
+  top:20vh;
+  width: 90vw;
+  height: 50vh;
+  padding: 20vh 0;
+  border: 3px solid green;
+  text-align: center;
+
 }
