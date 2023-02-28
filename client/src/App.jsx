@@ -12,7 +12,7 @@ const App = () => {
   console.log(sex, age, tobacco, language)
 
   const [initialData, setInitialData] = useState([])
-  console.log(initialData)
+  // console.log(initialData)
   useEffect(() => {
     const initialFetch = async () => {
       try {
@@ -26,7 +26,17 @@ const App = () => {
     initialFetch()
 
   }, [])
-  // console.log(initialData.Sections.section);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await fetch(`https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?age=${age}&sex=${sex}&tobaccoUse=${tobacco}&Lang=${language}`)
+      const data = await response.json()
+      console.log(data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
     <div className="page-container">
@@ -63,7 +73,7 @@ const App = () => {
             </Form.Select>
           </div>
           <div className="search-button">
-          <Button variant="warning">Search</Button>
+          <Button variant="warning" onClick={(e)=>handleSubmit(e)}>Search</Button>
         </div>
         </div>
 
