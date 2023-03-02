@@ -12,6 +12,25 @@ app.use(express.json()) //this allows us to access the req.body
 
 //ROUTES//
 
+//create a user in db
+app.post('/register', async (req, res) => { 
+    const { fName, lName, email, password} = req.body
+    try {
+        //check to see if user is already in db
+        let records = await pool.query(`SELECT * FROM users WHERE email = $1`, [email]) //[{}, {}]
+        console.log(records)
+        if(records.rows.length !== 0){
+            //email is registered in db, so send back an error message to react
+            return res.status(422).json({error: "Email already exists"})
+        }else{
+            //create a new account
+            const newAccount = await pool.query(`INSERT INTO users (fname, lname, email, password) VALUES ($1, $2, $3, $4) RETURNING *`, [fName, lName, email, password]);
+            res.json(newAccount.rows[0])
+        }
+    } catch (error) {
+        console.log(error)
+    }
+ })
 
 
 
