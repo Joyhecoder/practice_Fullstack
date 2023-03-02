@@ -59,12 +59,12 @@ h3{
 
 
 /* app.js */
-.searchBar-container {
+/* .searchBar-container {
   background-color: yellow;
   height: auto;
   padding-top: 5vh;
   padding-left: 5vw;
-  /* padding-left: 5vw; */
+
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -75,7 +75,7 @@ h3{
   display: inline-flex;
   flex-wrap: wrap;
   height:10vh;
-}
+} */
 
 /* @media (max-width:708px) {
   .searchReq {
@@ -107,7 +107,7 @@ h3{
   }
 } */
 
-.sex, .age, .tobacco, .language {
+/* .sex, .age, .tobacco, .language {
   margin-right: 1vw;
   font-family: var(--ff-primary);
   width: 20vw;
@@ -146,5 +146,61 @@ h3{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+} */
+
+body {
+  font-family: var(--ff-secondary);
+  padding: 20px;
+  background: #f1f1f1;
 }
 
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: #e9c46a;
+  font-family: var(--ff-primary);
+
+}
+
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.fakeimg {
+  background-color: #e9c46a;
+  width: 100%;
+  padding: 20px;
+}
+.initialImg {
+  width:100%;
+}
+a {
+  color: black;
+}
+
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #264653;
+  margin-top: 20px;
+  color:#e9c46a
+}
+
+li > a {
+  color:#e9c46a;
+}
