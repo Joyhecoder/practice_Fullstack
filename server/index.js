@@ -32,6 +32,31 @@ app.post('/register', async (req, res) => {
     }
  })
 
+ //check a user's login
+ app.post('/login', async (req, res) => { 
+    const { email, password } = req.body
+    try{
+        //1. destructure the req.body
+        const response = await pool.query(`SELECT * FROM users WHERE email = $1`, [email])
+        //2. check if user doesn't exist 
+        if(response.rowCount === 0){
+            console.log('no email existed')
+            return res.status(405).json({message: 'no email found'})
+        }
+        //3. check if incoming password is the same as the db password
+        else if (response.rows[0].password == password){
+            console.log('login successfully')
+            res.send('login right')
+        }else{
+            console.log('credential wrong')
+            return res.status(401).json('Password or email is incorrect')
+        }
+    }catch(error){
+        console.log(error)
+    }
+  }
+ )
+
 
 
 app.listen(port, () => {

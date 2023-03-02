@@ -12,7 +12,7 @@ const App = () => {
   var headers = {}
   // console.log(sex, age, tobacco, language)
   const [searchResult, setSearchResult] = useState([])
-  console.log(searchResult)
+  // console.log(searchResult)
   const [initialData, setInitialData] = useState([])
   // console.log(initialData)
   useEffect(() => {
@@ -38,7 +38,7 @@ const App = () => {
     try {
       const response = await fetch(`https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?age=${age}&sex=${sex}&tobaccoUse=${tobacco}&Lang=${language}`)
       const data = await response.json()
-      console.log(data);
+      // console.log(data);
       setSearchResult(data.Result)
     } catch (error) {
       console.log(error)
