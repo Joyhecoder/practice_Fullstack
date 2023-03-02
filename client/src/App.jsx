@@ -9,15 +9,20 @@ const App = () => {
   const [age, setAge] = useState()
   const [tobacco, setTobacco] = useState('')
   const [language, setLanguage] = useState('')
+  var headers = {}
   // console.log(sex, age, tobacco, language)
   const [searchResult, setSearchResult] = useState([])
   console.log(searchResult)
   const [initialData, setInitialData] = useState([])
-  console.log(initialData)
+  // console.log(initialData)
   useEffect(() => {
     const initialFetch = async () => {
       try {
-        const response = await fetch('https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=527')
+        const response = await fetch('https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=527',{
+          method : "GET",
+          mode: 'cors',
+          headers: headers
+        })
         const data = await response.json()
         setInitialData(data.Result.Resources.Resource[0])
       } catch (error) {
@@ -39,6 +44,23 @@ const App = () => {
       console.log(error)
     }
   }
+
+if(initialData.length !== 0){
+  let arr = initialData.Sections.section[0].Content.split('')
+  let count = 1
+  for(let i=0; i < arr.length; i++){
+    if(arr[i]==='<'){
+      if(arr[i += count] !== '>'){
+        count++
+      }else{
+        arr.splice(i, count)
+        count = 1
+      }
+    }
+  }
+  // console.log(arr)
+   
+}
   return (
     <>
       <div className="header">
@@ -70,6 +92,29 @@ const App = () => {
           }
          
           </div>
+
+          <div class="card">
+            {searchResult.length === 0 ? 
+            <div>
+            <h2>Search for you</h2>
+            <h5>Please use the search box on the upper right corner</h5>
+            </div>
+            :
+            <div>
+              <h2>{searchResult.MyHFHeading}</h2>
+              <h5>{searchResult.Resources.all.Resource[0].MyHFCategoryHeading}</h5>
+              <div className="fakeimg">
+                <img src={searchResult.Resources.all.Resource[0].ImageUrl} alt={searchResult.Resources.all.Resource[0].ImageAlt} className="initialImg"/>
+              </div>
+              {searchResult.Resources.all.Resource.map(item=>{
+                return (
+                  <p>{item.MyHFDescription}</p>
+                )
+              })}
+            </div>
+          }
+            
+         </div>
         </div>
 
         <div className="rightcolumn">
@@ -142,6 +187,45 @@ const App = () => {
           
         </div>
         </div>
+      </div>
+
+
+{/* footer section */}
+      <div class="footer">
+        
+        <footer className="page-footer font-small blue pt-4">
+          <div className="container-fluid text-center text-md-left">
+              <div className="row">
+                  <div className="col-md-6 mt-md-0 mt-3">
+                      <h5 className="text-uppercase">Healthcare Resource</h5>
+                      <p>A resource website that helps you and your family in a new country.</p>
+                  </div>
+
+                  <hr className="clearfix w-100 d-md-none pb-0"/>
+
+                  <div className="col-md-3 mb-md-0 mb-3">
+                      <h5 className="text-uppercase">Contact Us</h5>
+                      <ul className="list-unstyled">
+                          <li><a href="#!">Email</a></li>
+                          <li><a href="#!">Linkedln</a></li>
+                          <li><a href="#!">Phone</a></li>
+                      </ul>
+                  </div>
+
+                  <div className="col-md-3 mb-md-0 mb-3">
+                      <h5 className="text-uppercase">About Us</h5>
+                      <ul className="list-unstyled">
+                          <li><a href="#!">Our Team</a></li>
+                          <li><a href="#!">Career</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div className="footer-copyright text-center py-3">© 2020 Copyright
+              {/* <a href="https://mdbootstrap.com/"> </a> */}
+          </div>
+        </footer>
       </div>
     </>
   )

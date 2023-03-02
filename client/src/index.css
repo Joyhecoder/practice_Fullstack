@@ -191,3 +191,16 @@ body {
 a {
   color: black;
 }
+
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #264653;
+  margin-top: 20px;
+  color:#e9c46a
+}
+
+li > a {
+  color:#e9c46a;
+}
